@@ -1,0 +1,33 @@
+﻿@model List<Lab3.Models.FriendModel>
+@{
+    ViewBag.Title = "ShowAllFriends";
+}
+
+
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>Friend ID. </th>
+        <th>Friend Name </th>
+        <th>Place </th>
+        <th></th>
+    </tr>
+   @{
+       int i = 0;
+
+       foreach (var f in Model)
+       {
+        <tr>
+            <td>@f.Id</td>
+            <td>@f.Ime</td>
+            <td>@f.MestoZiveenje</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = i })   @Html.ActionLink("Delete", "Delete", new { id = i })
+            </td>
+           
+        </tr>
+           i++;
+       }
+       }
+
+</table>
+
